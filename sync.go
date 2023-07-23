@@ -2,17 +2,17 @@ package workersync
 
 type WorkResultFunc func()
 
-type WorkerSyncer struct {
+type WorkSync struct {
 	db *db
 }
 
-func New(db *db) *WorkerSyncer {
-	return &WorkerSyncer{
+func New(db *db) *WorkSync {
+	return &WorkSync{
 		db: db,
 	}
 }
 
-func (w *WorkerSyncer) AcquireWork(workName, sequence string) (WorkResultFunc, WorkResultFunc, error) {
+func (w *WorkSync) AcquireWork(workName, sequence string) (WorkResultFunc, WorkResultFunc, error) {
 	id, err := w.db.acquireWork(workName, sequence)
 	if err != nil {
 		return nil, nil, err
