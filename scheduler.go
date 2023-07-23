@@ -6,6 +6,7 @@ import (
 	"time"
 )
 
+// SequenceFunc used to generate sequence for each work.
 type SequenceFunc func(schedule time.Time) string
 
 type SchedulerConfig struct {
@@ -31,7 +32,10 @@ type WorkScheduler struct {
 
 func NewScheduler(db *db, works []*Work, config *SchedulerConfig) (*WorkScheduler, error) {
 	for _, work := range works {
-		work.parseSchedule()
+		err := work.parseSchedule()
+		if err != nil {
+			return nil, err
+		}
 	}
 
 	scheduler := WorkScheduler{
