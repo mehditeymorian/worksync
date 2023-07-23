@@ -1,4 +1,4 @@
-module github.com/mehditeymorian/workersync
+module github.com/mehditeymorian/worksync
 
 go 1.20
 

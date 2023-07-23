@@ -1,4 +1,4 @@
-package workersync
+package worksync
 
 type entry struct {
 	name     string
