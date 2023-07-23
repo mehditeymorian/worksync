@@ -159,6 +159,10 @@ func (d *db) acquireWork(workName, sequence string) (int64, error) {
 		return 0, fmt.Errorf("%s: %w", ErrFailToFinalizeAcquire.Error(), err)
 	}
 
+	if *id == 0 {
+		return 0, ErrFailToAcquireWork
+	}
+
 	return *id, nil
 }
 
