@@ -65,6 +65,11 @@ func NewWorkScheduler(works []*Work, config *SchedulerConfig) (*WorkScheduler, e
 }
 
 func (w *WorkScheduler) StartSchedule() {
+	now := time.Now()
+	for _, work := range w.works {
+		work.previousTime = now
+	}
+
 	w.cron.Start()
 }
 
