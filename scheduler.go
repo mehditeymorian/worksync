@@ -44,9 +44,10 @@ func NewWorkScheduler(db *db, works []*Work, config *SchedulerConfig) (*WorkSche
 	config = parseConfig(config)
 
 	err := scheduler.cron.AddFunc(config.SchedulerCheckingInterval, func() {
+		now := time.Now()
 		for _, work := range scheduler.works {
 			nextSchedule := work.schedule.Next(work.previousTime)
-			sub := nextSchedule.Sub(time.Now())
+			sub := nextSchedule.Sub(now)
 			if sub <= config.DurationBeforeSequence { // time to schedule
 				scheduler.entryChan <- &entry{
 					name:     work.Name,
