@@ -29,7 +29,7 @@ type WorkScheduler struct {
 	db        *db
 }
 
-func NewWorkScheduler(db *db, works []*Work, config *SchedulerConfig) (*WorkScheduler, error) {
+func NewScheduler(db *db, works []*Work, config *SchedulerConfig) (*WorkScheduler, error) {
 	for _, work := range works {
 		work.parseSchedule()
 	}

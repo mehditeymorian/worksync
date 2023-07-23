@@ -6,7 +6,7 @@ type WorkSync struct {
 	db *db
 }
 
-func New(db *db) *WorkSync {
+func NewSyncer(db *db) *WorkSync {
 	return &WorkSync{
 		db: db,
 	}
