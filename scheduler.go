@@ -26,9 +26,10 @@ type WorkScheduler struct {
 	cron      *cron.Cron
 	works     []*Work
 	entryChan chan *entry
+	db        *db
 }
 
-func NewWorkScheduler(works []*Work, config *SchedulerConfig) (*WorkScheduler, error) {
+func NewWorkScheduler(db *db, works []*Work, config *SchedulerConfig) (*WorkScheduler, error) {
 	for _, work := range works {
 		work.parseSchedule()
 	}
@@ -37,6 +38,7 @@ func NewWorkScheduler(works []*Work, config *SchedulerConfig) (*WorkScheduler, e
 		works:     works,
 		cron:      cron.New(),
 		entryChan: make(chan *entry),
+		db:        db,
 	}
 
 	config = parseConfig(config)
@@ -80,6 +82,10 @@ func (w *WorkScheduler) StopSchedule() {
 func (w *WorkScheduler) workCreator() {
 	for e := range w.entryChan {
 		fmt.Printf("work: %s - sequence: %s - time: %s\n", e.name, e.sequence, time.Now().Format(time.TimeOnly))
+		err := w.db.createWork(e)
+		if err != nil {
+			fmt.Printf("failed to create work for entry=%s sequence=%s: %s\n", e.name, e.sequence, err.Error())
+		}
 	}
 }
 

@@ -17,7 +17,7 @@ const (
 type Work struct {
 	Name   string
 	Cron   string
-	MaxRun uint
+	MaxRun int64
 
 	schedule     cron.Schedule
 	previousTime time.Time
