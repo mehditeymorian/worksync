@@ -36,4 +36,6 @@ func (w *Work) parseSchedule() error {
 
 	w.schedule = schedule
 	w.previousTime = time.Now()
+
+	return nil
 }
