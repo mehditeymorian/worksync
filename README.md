@@ -2,21 +2,21 @@
 <img alt="Koi logo" src="assets/image.png" width="500px"/><br/>
 Work Synchronizer
 </h1>
-<p align="center">Schedule Works for different types of workers on different machines backed by only a single `mysql` table.
+<p align="center">Schedule works for different types of workers on different machines backed by only a single `MySQL` table.
 </p>
 
 <p align="center">
 <a href="https://pkg.go.dev/github.com/mehditeymorian/worksync?tab=doc"target="_blank">
     <img src="https://img.shields.io/badge/Go-1.20+-00ADD8?style=for-the-badge&logo=go" alt="go version" />
 </a>&nbsp;
-<img src="https://img.shields.io/badge/license-apache_2.0-red?style=for-the-badge&logo=none" alt="license" />
+<img src="https://img.shields.io/badge/license-MIT-blue?style=for-the-badge&logo=none" alt="license" />
 
 <img src="https://img.shields.io/badge/Version-1.0.0-informational?style=for-the-badge&logo=none" alt="version" />
 </p>
 
 ## Why this library
 - Small Codebase
-- Minimum dependency to other libraries
+- Minimum dependency on other libraries
 - Flexibility to integrate into workers
 
 ## Download
@@ -38,10 +38,10 @@ type Work struct {
 	MaxRun int64
 }
 ```
-The Scheduler then create works before the schedule of each workers based on `MaxRun` value. Then at the scheduled time, each worker try to acquire work by updating the status of the work. If there is work with `Queued` status, the worker will acquire the work. otherwise, it fails.
-> Note: each sequence of works is known by worker `name` and a `sequence` value. These two values must be the same on scheduler and on the worker side while tring to acquire work.
+The Scheduler then creates works before the schedule of each worker based on the `MaxRun` value. Then at the scheduled time, each worker tries to acquire work by updating the work status. If there is work with a `Queued` status, the worker will acquire the work. otherwise, it fails.
+> Note: each sequence of works is known by the worker `name` and a `sequence` value. These two values must be the same on the scheduler and on the worker side.
 > 
-> By default, scheduler set `sequence` as run schedule formatted by `time.DateTime`. The sequence generator can be customized in schedule's config.
+> By default, the scheduler set `sequence` as the execution time formatted by `time.DateTime`. The sequence generator can be customized in the schedule's config.
 
 ## How to Use
 Create the following table in MYSQL
@@ -81,7 +81,7 @@ func main() {
 
 
 ### Client Side
-In client-side it only requires to call the `acquireWork` before doing the work.
+On the client-side, it only requires calling the `acquireWork` before doing the work.
 ```go
 package main
 
