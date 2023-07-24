@@ -11,7 +11,7 @@ Work Synchronizer
 </a>&nbsp;
 <img src="https://img.shields.io/badge/license-MIT-blue?style=for-the-badge&logo=none" alt="license" />
 
-<img src="https://img.shields.io/badge/Version-1.0.0-informational?style=for-the-badge&logo=none" alt="version" />
+<img src="https://img.shields.io/badge/Version-0.0.1-informational?style=for-the-badge&logo=none" alt="version" />
 </p>
 
 ## Why this library
