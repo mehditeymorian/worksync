@@ -19,8 +19,13 @@ const (
 )
 
 type Work struct {
-	Name   string
-	Cron   string
+	// unique name for the work
+	Name string
+	// cron expression of when the worker is going to be executed
+	Cron string
+	// number of times the work must be executed.
+	// Note that it is only guaranteed that
+	// the number of workers acquiring this work not to surpass this value.
 	MaxRun int64
 
 	schedule     cron.Schedule
