@@ -81,7 +81,7 @@ func main() {
 
 
 ### Worker Side
-On the client-side, it only requires calling the `acquireWork` before doing the work.
+On the worker-side, it only requires calling the `acquireWork` before doing the work.
 ```go
 package main
 
