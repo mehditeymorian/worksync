@@ -80,7 +80,7 @@ func main() {
 ```
 
 
-### Client Side
+### Worker Side
 On the client-side, it only requires calling the `acquireWork` before doing the work.
 ```go
 package main
@@ -101,7 +101,7 @@ func main() {
 }
 ```
 
-### Server Side
+### Manager Side
 ```go
 package main
 
