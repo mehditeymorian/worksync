@@ -1,1 +1,5 @@
-package slave
+package main
+
+func main() {
+
+}
