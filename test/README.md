@@ -35,3 +35,21 @@ job:
     cron: "@every 5m"
 ```
 
+## docker images
+
+In order to test ```worksync``` you can use the following images:
+
+```shell
+docker pull amirhossein21/workersync:v0.1-slave
+docker pull amirhossein21/workersync:v0.1-master
+```
+
+### execute
+
+First make sure to create a ```config.yaml``` file for container configs. Master and slave
+have different config types. Make sure to create suitable config files for each based on
+the templates in their directory.
+
+```shell
+docker run -d -v type=bind,source=$(pwd)/config.yaml,dest=/src/config.yaml amirhossein21/workersync:v0.1-master
+
