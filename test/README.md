@@ -12,7 +12,11 @@ The master configs are as below:
 
 ```yaml
 database:
-    dns: ""
+    host: "127.0.0.1"
+    port: 3306
+    username: "root"
+    password: ""
+    database: "ws"
 jobs:
     - name: "remove orders"
       cron: "@every 5m"
@@ -29,7 +33,11 @@ by that slave. The slaves configs are as below:
 
 ```yaml
 database:
-    dns: ""
+    host: "127.0.0.1"
+    port: 3306
+    username: "root"
+    password: ""
+    database: "ws"
 job:
     name: "emails"
     cron: "@every 5m"
