@@ -52,4 +52,9 @@ the templates in their directory.
 
 ```shell
 docker run -d -v type=bind,source=$(pwd)/config.yaml,dest=/src/config.yaml amirhossein21/workersync:v0.1-master
+```
 
+## kubernetes
+
+Use the manifests in [```k8s```](./k8s) directory in order to test ```worksync``` library on kubernetes
+cluster.
