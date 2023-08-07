@@ -24,6 +24,7 @@ type (
 	}
 
 	Config struct {
+		Name     string    `koanf:"name"`
 		Jobs     Job       `koanf:"jobs"`
 		Database db.Config `koanf:"database"`
 	}
