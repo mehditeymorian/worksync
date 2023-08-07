@@ -21,7 +21,7 @@ type (
 	Job struct {
 		Name   string `koanf:"name"`
 		Cron   string `koanf:"cron"`
-		MatRun int    `koanf:"max_run"`
+		MaxRun int64  `koanf:"max_run"`
 	}
 
 	Config struct {
