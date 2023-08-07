@@ -86,7 +86,7 @@ func (w *WorkScheduler) StopSchedule() {
 
 func (w *WorkScheduler) workCreator() {
 	for e := range w.entryChan {
-		fmt.Printf("work: %s - sequence: %s - time: %s\n", e.name, e.sequence, time.Now().Format(time.TimeOnly))
+		//fmt.Printf("work: %s - sequence: %s - time: %s\n", e.name, e.sequence, time.Now().Format(time.TimeOnly))
 		err := w.db.createWork(e)
 		if err != nil {
 			fmt.Printf("failed to create work for entry=%s sequence=%s: %s\n", e.name, e.sequence, err.Error())
