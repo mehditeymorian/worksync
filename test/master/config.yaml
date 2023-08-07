@@ -1,0 +1,13 @@
+database:
+  host: "127.0.0.1"
+  port: 3306
+  username: "root"
+  password: ""
+  database: "ws"
+jobs:
+  - name: "Order Check"
+    cron: "@every 10s"
+    max_run: 1
+  - name: "Transaction Check"
+    cron: "1 * * * *"
+    max_run: 10

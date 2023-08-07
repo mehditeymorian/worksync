@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: workersync-slave-good-slave-pod
+  labels:
+    app: workersync-slave
+spec:
+  containers:
+    - name: workersync-slave
+      image: amirhossein21/workersync:v0.1-slave
+      volumeMounts:
+        - name: config
+          mountPath: /src/config.yaml
+          subPath: config.yaml
+  volumes:
+    - name: config
+      configMap:
+        name: workersync-slave-good-slave-configmap
