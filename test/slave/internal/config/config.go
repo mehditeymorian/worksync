@@ -5,7 +5,7 @@ import (
 	"log"
 	"strings"
 
-	"github.com/mehditeymorian/worksync/test/master/internal/db"
+	"github.com/mehditeymorian/worksync/test/slave/internal/db"
 
 	"github.com/knadh/koanf"
 	"github.com/knadh/koanf/parsers/yaml"

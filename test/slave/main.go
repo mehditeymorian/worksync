@@ -7,8 +7,8 @@ import (
 	"time"
 
 	"github.com/mehditeymorian/worksync"
-	"github.com/mehditeymorian/worksync/test/master/internal/config"
-	"github.com/mehditeymorian/worksync/test/master/internal/db"
+	"github.com/mehditeymorian/worksync/test/slave/internal/config"
+	"github.com/mehditeymorian/worksync/test/slave/internal/db"
 
 	"github.com/robfig/cron"
 )

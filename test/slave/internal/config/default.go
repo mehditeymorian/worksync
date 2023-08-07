@@ -1,6 +1,6 @@
 package config
 
-import "github.com/mehditeymorian/worksync/test/master/internal/db"
+import "github.com/mehditeymorian/worksync/test/slave/internal/db"
 
 func Default() Config {
 	return Config{
