@@ -16,7 +16,7 @@ database:
 jobs:
     - name: "remove orders"
       cron: "@every 5m"
-      max_run: 0
+      max_run: 1
     - name: "emails"
       cron: "* 1 * * *"
       max_run: 24

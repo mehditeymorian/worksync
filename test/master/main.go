@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"sync"
 	"time"
 
@@ -43,6 +44,8 @@ func main() {
 	})
 
 	scheduler.StartSchedule()
+
+	log.Println("master is set.")
 
 	wg.Add(1)
 	wg.Wait()

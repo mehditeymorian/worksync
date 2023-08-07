@@ -1,13 +1,10 @@
+name: ""
 database:
   host: ""
   port: 0
   username: ""
   password: ""
   database: ""
-jobs:
-  - name: "Order Check"
-    cron: "@every 10m"
-    max_run: 1
-  - name: "Transaction Check"
-    cron: "1 * * * *"
-    max_run: 10
+job:
+  name: "Order Check"
+  cron: "@every 10m"

@@ -46,6 +46,8 @@ func main() {
 		success()
 	})
 
+	log.Println(fmt.Sprintf("slave [%s] is set.", cfg.Name))
+
 	wg.Add(1)
 	wg.Wait()
 }
