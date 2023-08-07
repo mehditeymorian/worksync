@@ -5,6 +5,8 @@ import (
 	"log"
 	"strings"
 
+	"github.com/mehditeymorian/worksync/test/master/internal/db"
+
 	"github.com/knadh/koanf"
 	"github.com/knadh/koanf/parsers/yaml"
 	"github.com/knadh/koanf/providers/env"
@@ -15,8 +17,18 @@ import (
 
 const Prefix = "WS_"
 
-type Config struct {
-}
+type (
+	Job struct {
+		Name   string `koanf:"name"`
+		Cron   string `koanf:"cron"`
+		MatRun int    `koanf:"max_run"`
+	}
+
+	Config struct {
+		Jobs     []Job     `koanf:"jobs"`
+		Database db.Config `koanf:"database"`
+	}
+)
 
 func New(path string) Config {
 	var instance Config
