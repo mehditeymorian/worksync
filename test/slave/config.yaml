@@ -1,10 +1,12 @@
-name: ""
+name: "my slave"
 database:
-  host: ""
-  port: 0
-  username: ""
+  host: "127.0.0.1"
+  port: 3306
+  username: "root"
   password: ""
-  database: ""
+  database: "ws"
 job:
-  name: "Order Check"
-  cron: "@every 10m"
+  #name: "Order Check"
+  #cron: "@every 10s"
+  name: "Transaction Check"
+  cron: "1 * * * *"

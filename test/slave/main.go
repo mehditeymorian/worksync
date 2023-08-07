@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"log"
-	"sync"
 	"time"
 
 	"github.com/mehditeymorian/worksync"
@@ -14,7 +13,7 @@ import (
 )
 
 func main() {
-	var wg sync.WaitGroup
+	channel := make(chan struct{})
 
 	// load configs
 	cfg := config.New("config.yaml")
@@ -46,8 +45,9 @@ func main() {
 		success()
 	})
 
+	workers.Start()
+
 	log.Println(fmt.Sprintf("slave [%s] is set.", cfg.Name))
 
-	wg.Add(1)
-	wg.Wait()
+	<-channel
 }
