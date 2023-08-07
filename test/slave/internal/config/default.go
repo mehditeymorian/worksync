@@ -4,6 +4,7 @@ import "github.com/mehditeymorian/worksync/test/master/internal/db"
 
 func Default() Config {
 	return Config{
+		Name: "",
 		Database: db.Config{
 			Database: "",
 			Host:     "",
@@ -11,6 +12,9 @@ func Default() Config {
 			Username: "",
 			Password: "",
 		},
-		Jobs: make([]Job, 0),
+		Job: Job{
+			Name: "",
+			Cron: "",
+		},
 	}
 }
