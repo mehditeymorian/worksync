@@ -24,7 +24,7 @@ type (
 	}
 
 	Config struct {
-		Jobs     []Job     `koanf:"jobs"`
+		Jobs     Job       `koanf:"jobs"`
 		Database db.Config `koanf:"database"`
 	}
 )
