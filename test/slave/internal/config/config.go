@@ -19,9 +19,8 @@ const Prefix = "WS_"
 
 type (
 	Job struct {
-		Name   string `koanf:"name"`
-		Cron   string `koanf:"cron"`
-		MatRun int    `koanf:"max_run"`
+		Name string `koanf:"name"`
+		Cron string `koanf:"cron"`
 	}
 
 	Config struct {
